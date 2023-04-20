@@ -95,6 +95,11 @@ export class AppComponent implements OnInit {
     return parent.visible && parent.expanded;
   }
 
+  groupHeaderClick(row) {
+    row.expanded = !row.expanded;
+    this.dataSource.filter = performance.now().toString(); // bug here need to fix
+  }
+
   addGroups(data: any[], groupByColumns: string[]): any[] {
     const rootGroup = new Group();
     rootGroup.expanded = true;
